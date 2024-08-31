@@ -49,6 +49,47 @@ def crear():
 
     messagebox.showinfo("BBDD", "registro insertado con éxito")
 
+def leer():
+    miConexion = sqlite3.connect("usuariosBase")
+    miCursor = miConexion.cursor()
+
+    miCursor.execute("select * from datos_usuarios where id =" + miId.get())
+
+    elUsuario = miCursor.fetchall()
+
+    for i in elUsuario:
+        miId.set(i[0])
+        miNombre.set(i[1])
+        miApellido.set(i[2])
+        miPass.set(i[3])
+        miDireccion.set(i[4])
+    
+    miConexion.commit()
+
+def actualizar():
+    miConexion = sqlite3.connect("usuariosBase")
+    miCursor = miConexion.cursor()
+
+    miCursor.execute("update datos_usuarios set nombre_usuario = '" + miNombre.get() + 
+                     "', apellido='" + miApellido.get() + 
+                     "', password='" + miPass.get() + 
+                     "', direccion='" + miDireccion.get() + "' where ID=" + miId.get())
+    
+    miConexion.commit()
+
+    messagebox.showinfo("BBDD", "registro actualizado con éxito")
+
+
+def eliminar():
+    miConexion = sqlite3.connect("usuariosBase")
+    miCursor = miConexion.cursor()
+
+    miCursor.execute("delete from datos_usuarios where id=" + miId.get())
+
+    miConexion.commit()
+
+    messagebox.showinfo("BBDD", "registro borrado con éxito")
+
 
         
     

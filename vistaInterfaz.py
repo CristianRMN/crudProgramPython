@@ -5,7 +5,7 @@ import sqlite3
 
 root = Tk()
 
-from funcionesInterfaz import conexionBBDD, salirAplicacion, limpiarCampos, crear
+from funcionesInterfaz import conexionBBDD, salirAplicacion, limpiarCampos, crear, leer, actualizar, eliminar
 from variablesCompartidas import  miId, miNombre, miApellido, miPass, miDireccion
 
 
@@ -26,9 +26,9 @@ borrarMenu.add_command(label="Borrar campos", command=limpiarCampos)
 
 crudMenu = Menu(barraMenu, tearoff=0)
 crudMenu.add_command(label="crear", command=crear)
-crudMenu.add_command(label="Leer")
-crudMenu.add_command(label="Actualizar")
-crudMenu.add_command(label="Borrar")
+crudMenu.add_command(label="Leer", command=leer)
+crudMenu.add_command(label="Actualizar", command=actualizar)
+crudMenu.add_command(label="Borrar", command=eliminar)
 
 ayudaMenu = Menu(barraMenu, tearoff=0)
 ayudaMenu.add_command(label="Licencia")
@@ -94,15 +94,15 @@ botonCrear = Button(frameBotones, text="Create", command=crear)
 botonCrear.grid(row=1, column=0, padx=5, pady=5, sticky="e")
 
 
-botonLeer = Button(frameBotones, text="read")
+botonLeer = Button(frameBotones, text="read", command=leer)
 botonLeer.grid(row=1, column=1, padx=5, pady=5, sticky="e")
 
 
-botonActualizar = Button(frameBotones, text="Update")
+botonActualizar = Button(frameBotones, text="Update", command=actualizar)
 botonActualizar.grid(row=1, column=2, padx=5, pady=5, sticky="e")
 
 
-botonBorrar = Button(frameBotones, text="Delete")
+botonBorrar = Button(frameBotones, text="Delete", command=eliminar)
 botonBorrar.grid(row=1, column=3, padx=5, pady=5, sticky="e")
 
 root.mainloop()
