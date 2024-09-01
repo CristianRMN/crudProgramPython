@@ -5,7 +5,7 @@ import sqlite3
 
 root = Tk()
 
-from funcionesInterfaz import conexionBBDD, salirAplicacion, limpiarCampos, crear, leer, actualizar, eliminar
+from funcionesInterfaz import conexionBBDD, salirAplicacion, limpiarCampos, crear, leer, actualizar, eliminar, ayuda, acerca
 from variablesCompartidas import  miId, miNombre, miApellido, miPass, miDireccion
 
 
@@ -31,8 +31,8 @@ crudMenu.add_command(label="Actualizar", command=actualizar)
 crudMenu.add_command(label="Borrar", command=eliminar)
 
 ayudaMenu = Menu(barraMenu, tearoff=0)
-ayudaMenu.add_command(label="Licencia")
-ayudaMenu.add_command(label="Acerca de")
+ayudaMenu.add_command(label="Licencia", command=ayuda)
+ayudaMenu.add_command(label="Acerca de", command=acerca)
 
 barraMenu.add_cascade(label="BBDD", menu=bbddMenu)
 barraMenu.add_cascade(label="Borrar", menu=borrarMenu)

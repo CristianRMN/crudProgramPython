@@ -91,6 +91,17 @@ def eliminar():
     messagebox.showinfo("BBDD", "registro borrado con éxito")
 
 
+def ayuda():
+    messagebox.showinfo("Licencia", "Programa crud hecho en visual studio code")
+
+def acerca():
+    messagebox.showinfo("preguntas", "IDE: Visual code" + "\n" + "Base de datos: Sqlite")
+
+#consulta parametrizada
+#datos = miNombre.get(),miApellido.get(),miPass.get(),miDireccion.get()
+#miCursor.execute("insert into datos_usuarios values(NULL, ?, ?, ?, ?)", (datos))
+
+
         
     
     
